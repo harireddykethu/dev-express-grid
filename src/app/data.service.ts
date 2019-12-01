@@ -6,380 +6,351 @@ import { Injectable } from '@angular/core';
 export class DataService {
   constructor() {}
 
-  getEmployees() {
-    return employees;
-  }
-
-  getStates() {
-    return states;
+  getOrders(): Order[] {
+    return orders;
   }
 }
 
-export class Employee {
+export class Order {
   ID: number;
-  FirstName: string;
-  LastName: string;
-  Prefix: string;
-  Position: string;
-  Picture: string;
-  BirthDate: string;
-  HireDate: string;
-  Notes: string;
-  Address: string;
-  StateID: number;
+  OrderNumber: number;
+  OrderDate: string;
+  DeliveryDate: string;
+  SaleAmount: number;
+  Terms: string;
+  CustomerStoreCity: string;
+  Employee: string;
 }
 
-export class State {
-  ID: number;
-  Name: string;
-}
-
-let employees: Employee[] = [
+let orders: Order[] = [
   {
     ID: 1,
-    FirstName: 'John',
-    LastName: 'Heart',
-    Prefix: 'Mr.',
-    Position: 'CEO',
-    Picture: 'images/employees/01.png',
-    BirthDate: '1964/03/16',
-    HireDate: '1995/01/15',
-    Notes:
-      'John has been in the Audio/Video industry since 1990. He has led DevAv as its CEO since 2003.\r\n\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.',
-    Address: '351 S Hill St.',
-    StateID: 5
-  },
-  {
-    ID: 2,
-    FirstName: 'Olivia',
-    LastName: 'Peyton',
-    Prefix: 'Mrs.',
-    Position: 'Sales Assistant',
-    Picture: 'images/employees/09.png',
-    BirthDate: '1981/06/03',
-    HireDate: '2012/05/14',
-    Notes:
-      'Olivia loves to sell. She has been selling DevAV products since 2012. \r\n\r\nOlivia was homecoming queen in high school. She is expecting her first child in 6 months. Good Luck Olivia.',
-    Address: '807 W Paseo Del Mar',
-    StateID: 5
-  },
-  {
-    ID: 3,
-    FirstName: 'Robert',
-    LastName: 'Reagan',
-    Prefix: 'Mr.',
-    Position: 'CMO',
-    Picture: 'images/employees/03.png',
-    BirthDate: '1974/09/07',
-    HireDate: '2002/11/08',
-    Notes:
-      'Robert was recently voted the CMO of the year by CMO Magazine. He is a proud member of the DevAV Management Team.\r\n\r\nRobert is a championship BBQ chef, so when you get the chance ask him for his secret recipe.',
-    Address: '4 Westmoreland Pl.',
-    StateID: 4
+    OrderNumber: 35703,
+    OrderDate: '2017/04/10',
+    DeliveryDate: '2017/04/13 9:00',
+    SaleAmount: 11800,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Los Angeles, CA',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 4,
-    FirstName: 'Greta',
-    LastName: 'Sims',
-    Prefix: 'Ms.',
-    Position: 'HR Manager',
-    Picture: 'images/employees/04.png',
-    BirthDate: '1977/11/22',
-    HireDate: '1998/04/23',
-    Notes:
-      "Greta has been DevAV's HR Manager since 2003. She joined DevAV from Sonee Corp.\r\n\r\nGreta is currently training for the NYC marathon. Her best marathon time is 4 hours. Go Greta.",
-    Address: '1700 S Grandview Dr.',
-    StateID: 11
+    OrderNumber: 35711,
+    OrderDate: '2017/01/12',
+    DeliveryDate: '2017/01/13 9:00',
+    SaleAmount: 16050,
+    Terms: '15 Days',
+    CustomerStoreCity: 'San Jose, CA',
+    Employee: 'Jim Packard'
   },
   {
     ID: 5,
-    FirstName: 'Brett',
-    LastName: 'Wade',
-    Prefix: 'Mr.',
-    Position: 'IT Manager',
-    Picture: 'images/employees/05.png',
-    BirthDate: '1968/12/01',
-    HireDate: '2009/03/06',
-    Notes:
-      'Brett came to DevAv from Microsoft and has led our IT department since 2012.\r\n\r\nWhen he is not working hard for DevAV, he coaches Little League (he was a high school pitcher).',
-    Address: '1120 Old Mill Rd.',
-    StateID: 13
-  },
-  {
-    ID: 6,
-    FirstName: 'Sandra',
-    LastName: 'Johnson',
-    Prefix: 'Mrs.',
-    Position: 'Controller',
-    Picture: 'images/employees/06.png',
-    BirthDate: '1974/11/15',
-    HireDate: '2005/05/11',
-    Notes:
-      "Sandra is a CPA and has been our controller since 2008. She loves to interact with staff so if you've not met her, be certain to say hi.\r\n\r\nSandra has 2 daughters both of whom are accomplished gymnasts.",
-    Address: '4600 N Virginia Rd.',
-    StateID: 44
+    OrderNumber: 35714,
+    OrderDate: '2017/01/22',
+    DeliveryDate: '2017/01/27 9:00',
+    SaleAmount: 14750,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 7,
-    FirstName: 'Kevin',
-    LastName: 'Carter',
-    Prefix: 'Mr.',
-    Position: 'Shipping Manager',
-    Picture: 'images/employees/07.png',
-    BirthDate: '1978/01/09',
-    HireDate: '2009/08/11',
-    Notes:
-      'Kevin is our hard-working shipping manager and has been helping that department work like clockwork for 18 months.\r\n\r\nWhen not in the office, he is usually on the basketball court playing pick-up games.',
-    Address: '424 N Main St.',
-    StateID: 5
-  },
-  {
-    ID: 8,
-    FirstName: 'Cynthia',
-    LastName: 'Stanwick',
-    Prefix: 'Ms.',
-    Position: 'HR Assistant',
-    Picture: 'images/employees/08.png',
-    BirthDate: '1985/06/05',
-    HireDate: '2008/03/24',
-    Notes:
-      'Cindy joined us in 2008 and has been in the HR department for 2 years. \r\n\r\nShe was recently awarded employee of the month. Way to go Cindy!',
-    Address: '2211 Bonita Dr.',
-    StateID: 4
-  },
-  {
-    ID: 9,
-    FirstName: 'Kent',
-    LastName: 'Samuelson',
-    Prefix: 'Dr.',
-    Position: 'Ombudsman',
-    Picture: 'images/employees/02.png',
-    BirthDate: '1972/09/11',
-    HireDate: '2009/04/22',
-    Notes:
-      'As our ombudsman, Kent is on the front-lines solving customer problems and helping our partners address issues out in the field.    He is a classically trained musician and is a member of the Chamber Orchestra.',
-    Address: '12100 Mora Dr',
-    StateID: 26
-  },
-  {
-    ID: 10,
-    FirstName: 'Taylor',
-    LastName: 'Riley',
-    Prefix: 'Mr.',
-    Position: 'Network Admin',
-    Picture: '',
-    BirthDate: '1982/08/14',
-    HireDate: '2012/04/14',
-    Notes:
-      "If you are like the rest of us at DevAV, then you've probably reached out for help from Taylor. He does a great job as a member of our IT department.",
-    Address: '7776 Torreyson Dr',
-    StateID: 5
-  }
-];
-
-let states: State[] = [
-  {
-    ID: 1,
-    Name: 'Alabama'
-  },
-  {
-    ID: 2,
-    Name: 'Alaska'
-  },
-  {
-    ID: 3,
-    Name: 'Arizona'
-  },
-  {
-    ID: 4,
-    Name: 'Arkansas'
-  },
-  {
-    ID: 5,
-    Name: 'California'
-  },
-  {
-    ID: 6,
-    Name: 'Colorado'
-  },
-  {
-    ID: 7,
-    Name: 'Connecticut'
-  },
-  {
-    ID: 8,
-    Name: 'Delaware'
-  },
-  {
-    ID: 9,
-    Name: 'District of Columbia'
-  },
-  {
-    ID: 10,
-    Name: 'Florida'
+    OrderNumber: 35983,
+    OrderDate: '2017/02/07',
+    DeliveryDate: '2017/02/10 13:00',
+    SaleAmount: 3725,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Denver, CO',
+    Employee: 'Todd Hoffman'
   },
   {
     ID: 11,
-    Name: 'Georgia'
-  },
-  {
-    ID: 12,
-    Name: 'Hawaii'
-  },
-  {
-    ID: 13,
-    Name: 'Idaho'
+    OrderNumber: 38466,
+    OrderDate: '2017/03/01',
+    DeliveryDate: '2017/03/03 17:45',
+    SaleAmount: 7800,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Los Angeles, CA',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 14,
-    Name: 'Illinois'
+    OrderNumber: 39420,
+    OrderDate: '2017/02/15',
+    DeliveryDate: '2017/02/17 11:45',
+    SaleAmount: 20500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'San Jose, CA',
+    Employee: 'Jim Packard'
   },
   {
     ID: 15,
-    Name: 'Indiana'
-  },
-  {
-    ID: 16,
-    Name: 'Iowa'
-  },
-  {
-    ID: 17,
-    Name: 'Kansas'
+    OrderNumber: 39874,
+    OrderDate: '2017/02/04',
+    DeliveryDate: '2017/02/10 15:00',
+    SaleAmount: 9050,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 18,
-    Name: 'Kentucky'
-  },
-  {
-    ID: 19,
-    Name: 'Louisiana'
-  },
-  {
-    ID: 20,
-    Name: 'Maine'
-  },
-  {
-    ID: 21,
-    Name: 'Maryland'
-  },
-  {
-    ID: 22,
-    Name: 'Massachusetts'
-  },
-  {
-    ID: 23,
-    Name: 'Michigan'
-  },
-  {
-    ID: 24,
-    Name: 'Minnesota'
-  },
-  {
-    ID: 25,
-    Name: 'Mississippi'
-  },
-  {
-    ID: 26,
-    Name: 'Missouri'
-  },
-  {
-    ID: 27,
-    Name: 'Montana'
-  },
-  {
-    ID: 28,
-    Name: 'Nebraska'
-  },
-  {
-    ID: 29,
-    Name: 'Nevada'
+    OrderNumber: 42847,
+    OrderDate: '2017/02/15',
+    DeliveryDate: '2017/02/17 8:30',
+    SaleAmount: 20400,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Casper, WY',
+    Employee: 'Todd Hoffman'
   },
   {
     ID: 30,
-    Name: 'New Hampshire'
-  },
-  {
-    ID: 31,
-    Name: 'New Jersey'
+    OrderNumber: 57429,
+    OrderDate: '2017/05/16',
+    DeliveryDate: '2017/05/19 11:45',
+    SaleAmount: 11050,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Phoenix, AZ',
+    Employee: 'Clark Morgan'
   },
   {
     ID: 32,
-    Name: 'New Mexico'
-  },
-  {
-    ID: 33,
-    Name: 'New York'
-  },
-  {
-    ID: 34,
-    Name: 'North Carolina'
-  },
-  {
-    ID: 35,
-    Name: 'Ohio'
+    OrderNumber: 58292,
+    OrderDate: '2017/05/13',
+    DeliveryDate: '2017/05/19 14:30',
+    SaleAmount: 13500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Los Angeles, CA',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 36,
-    Name: 'Oklahoma'
-  },
-  {
-    ID: 37,
-    Name: 'Oregon'
-  },
-  {
-    ID: 38,
-    Name: 'Pennsylvania'
+    OrderNumber: 62427,
+    OrderDate: '2017/01/27',
+    DeliveryDate: '2017/02/03 18:00',
+    SaleAmount: 23500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 39,
-    Name: 'Rhode Island'
-  },
-  {
-    ID: 40,
-    Name: 'South Carolina'
-  },
-  {
-    ID: 41,
-    Name: 'South Dakota'
+    OrderNumber: 65977,
+    OrderDate: '2017/02/05',
+    DeliveryDate: '2017/02/10 13:15',
+    SaleAmount: 2550,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Casper, WY',
+    Employee: 'Todd Hoffman'
   },
   {
     ID: 42,
-    Name: 'Tennessee'
+    OrderNumber: 68428,
+    OrderDate: '2017/04/10',
+    DeliveryDate: '2017/04/14 11:30',
+    SaleAmount: 10500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Los Angeles, CA',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 43,
-    Name: 'Texas'
-  },
-  {
-    ID: 44,
-    Name: 'Utah'
-  },
-  {
-    ID: 45,
-    Name: 'Vermont'
+    OrderNumber: 69477,
+    OrderDate: '2017/03/09',
+    DeliveryDate: '2017/03/10 12:00',
+    SaleAmount: 14200,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Anaheim, CA',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 46,
-    Name: 'Virginia'
+    OrderNumber: 72947,
+    OrderDate: '2017/01/14',
+    DeliveryDate: '2017/01/20 9:00',
+    SaleAmount: 13350,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
   },
   {
     ID: 47,
-    Name: 'Washington'
-  },
-  {
-    ID: 48,
-    Name: 'West Virginia'
-  },
-  {
-    ID: 49,
-    Name: 'Wisconsin'
-  },
-  {
-    ID: 50,
-    Name: 'Wyoming'
+    OrderNumber: 73088,
+    OrderDate: '2017/03/25',
+    DeliveryDate: '2017/03/31 17:15',
+    SaleAmount: 8600,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Reno, NV',
+    Employee: 'Clark Morgan'
   },
   {
     ID: 51,
-    Name: 'North Dakota'
+    OrderNumber: 77297,
+    OrderDate: '2017/04/30',
+    DeliveryDate: '2017/05/05 18:00',
+    SaleAmount: 10850,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Phoenix, AZ',
+    Employee: 'Clark Morgan'
+  },
+  {
+    ID: 56,
+    OrderNumber: 84744,
+    OrderDate: '2017/02/10',
+    DeliveryDate: '2017/02/17 14:00',
+    SaleAmount: 4650,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 57,
+    OrderNumber: 85028,
+    OrderDate: '2017/05/17',
+    DeliveryDate: '2017/05/19 12:00',
+    SaleAmount: 2575,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Reno, NV',
+    Employee: 'Clark Morgan'
+  },
+  {
+    ID: 59,
+    OrderNumber: 87297,
+    OrderDate: '2017/04/21',
+    DeliveryDate: '2017/04/28 9:00',
+    SaleAmount: 14200,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Casper, WY',
+    Employee: 'Todd Hoffman'
+  },
+  {
+    ID: 65,
+    OrderNumber: 94726,
+    OrderDate: '2017/05/22',
+    DeliveryDate: '2017/05/26 13:30',
+    SaleAmount: 20500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'San Jose, CA',
+    Employee: 'Jim Packard'
+  },
+  {
+    ID: 66,
+    OrderNumber: 95266,
+    OrderDate: '2017/03/10',
+    DeliveryDate: '2017/03/17 11:45',
+    SaleAmount: 9050,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 69,
+    OrderNumber: 98477,
+    OrderDate: '2017/01/01',
+    DeliveryDate: '2017/01/06 9:00',
+    SaleAmount: 23500,
+    Terms: '15 Days',
+    CustomerStoreCity: 'Casper, WY',
+    Employee: 'Todd Hoffman'
+  },
+  {
+    ID: 78,
+    OrderNumber: 174884,
+    OrderDate: '2017/04/10',
+    DeliveryDate: '2017/04/14 8:30',
+    SaleAmount: 7200,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Denver, CO',
+    Employee: 'Todd Hoffman'
+  },
+  {
+    ID: 81,
+    OrderNumber: 188877,
+    OrderDate: '2017/02/11',
+    DeliveryDate: '2017/02/17 16:00',
+    SaleAmount: 8750,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Phoenix, AZ',
+    Employee: 'Clark Morgan'
+  },
+  {
+    ID: 82,
+    OrderNumber: 191883,
+    OrderDate: '2017/02/05',
+    DeliveryDate: '2017/02/10 18:30',
+    SaleAmount: 9900,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Los Angeles, CA',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 83,
+    OrderNumber: 192474,
+    OrderDate: '2017/01/21',
+    DeliveryDate: '2017/01/27 12:45',
+    SaleAmount: 12800,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Anaheim, CA',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 84,
+    OrderNumber: 193847,
+    OrderDate: '2017/03/21',
+    DeliveryDate: '2017/03/24 9:00',
+    SaleAmount: 14100,
+    Terms: '30 Days',
+    CustomerStoreCity: 'San Diego, CA',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 85,
+    OrderNumber: 194877,
+    OrderDate: '2017/03/06',
+    DeliveryDate: '2017/03/10 18:15',
+    SaleAmount: 4750,
+    Terms: '30 Days',
+    CustomerStoreCity: 'San Jose, CA',
+    Employee: 'Jim Packard'
+  },
+  {
+    ID: 86,
+    OrderNumber: 195746,
+    OrderDate: '2017/05/26',
+    DeliveryDate: '2017/06/02 17:00',
+    SaleAmount: 9050,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Las Vegas, NV',
+    Employee: 'Harv Mudd'
+  },
+  {
+    ID: 87,
+    OrderNumber: 197474,
+    OrderDate: '2017/03/02',
+    DeliveryDate: '2017/03/03 11:00',
+    SaleAmount: 6400,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Reno, NV',
+    Employee: 'Clark Morgan'
+  },
+  {
+    ID: 88,
+    OrderNumber: 198746,
+    OrderDate: '2017/05/09',
+    DeliveryDate: '2017/05/12 15:45',
+    SaleAmount: 15700,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Denver, CO',
+    Employee: 'Todd Hoffman'
+  },
+  {
+    ID: 91,
+    OrderNumber: 214222,
+    OrderDate: '2017/02/08',
+    DeliveryDate: '2017/02/10 9:45',
+    SaleAmount: 11050,
+    Terms: '30 Days',
+    CustomerStoreCity: 'Phoenix, AZ',
+    Employee: 'Clark Morgan'
   }
 ];

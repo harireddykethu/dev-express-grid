@@ -1,12 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DxDataGridModule, DxButtonModule } from 'devextreme-angular';
+import {
+  DxDataGridModule,
+  DxButtonModule,
+  DxSelectBoxModule,
+  DxCheckBoxModule
+} from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, DxDataGridModule, DxButtonModule],
+  imports: [
+    BrowserModule,
+    DxDataGridModule,
+    DxButtonModule,
+    DxSelectBoxModule,
+    DxCheckBoxModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
