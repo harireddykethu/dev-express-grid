@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService, Company } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dev-grip';
+  dataSource: Company[];
+
+  constructor(private dataService: DataService) {
+    this.dataSource = this.dataService.getCompanies();
+  }
 }
