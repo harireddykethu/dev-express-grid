@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService, Company } from './data.service';
+import { DataService, Employee, State } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,20 @@ import { DataService, Company } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  dataSource: Company[];
+  dataSource: Employee[];
+  states: State[];
+  events: Array<string> = [];
 
-  constructor(private dataService: DataService) {
-    this.dataSource = this.dataService.getCompanies();
+  constructor(service: DataService) {
+    this.dataSource = service.getEmployees();
+    this.states = service.getStates();
+  }
+
+  logEvent(eventName) {
+    this.events.unshift(eventName);
+  }
+
+  clearEvents() {
+    this.events = [];
   }
 }

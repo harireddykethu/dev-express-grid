@@ -6,242 +6,420 @@ import { Injectable } from '@angular/core';
 export class DataService {
   constructor() {}
 
-  getCompanies() {
-    return companies;
+  getEmployees() {
+    return employees;
+  }
+  getStates() {
+    return states;
   }
 }
 
-export class Company {
+export class Employee {
   ID: number;
-  CompanyName: string;
+  FirstName: string;
+  LastName: string;
+  Prefix: string;
+  Position: string;
+  BirthDate: string;
+  HireDate: string;
+  Notes: string;
   Address: string;
-  City: string;
-  State: string;
-  Zipcode: number;
-  Phone: string;
-  Fax: string;
-  Website: string;
+  StateID: number;
 }
 
-let companies: Company[] = [
+export class State {
+  ID: number;
+  Name: string;
+}
+
+let employees: Employee[] = [
   {
     ID: 1,
-    CompanyName: 'Premier Buy',
-    Address: '7601 Penn Avenue South',
-    City: 'Richfield',
-    State: 'Minnesota',
-    Zipcode: 55423,
-    Phone: '(612) 291-1000',
-    Fax: '(612) 291-2001',
-    Website: 'http =//www.nowebsitepremierbuy.com'
+    FirstName: 'John',
+    LastName: 'Heart',
+    Prefix: 'Mr.',
+    Position: 'CEO',
+    BirthDate: '1964/03/16',
+    HireDate: '1995/01/15',
+    Notes:
+      'John has been in the Audio/Video industry since 1990. He has led DevAv as its CEO since 2003.\r\n\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.',
+    Address: '351 S Hill St.',
+    StateID: 5
   },
   {
     ID: 2,
-    CompanyName: 'ElectrixMax',
-    Address: '263 Shuman Blvd',
-    City: 'Naperville',
-    State: 'Illinois',
-    Zipcode: 60563,
-    Phone: '(630) 438-7800',
-    Fax: '(630) 438-7801',
-    Website: 'http =//www.nowebsiteelectrixmax.com'
+    FirstName: 'Olivia',
+    LastName: 'Peyton',
+    Prefix: 'Mrs.',
+    Position: 'Sales Assistant',
+    BirthDate: '1981/06/03',
+    HireDate: '2012/05/14',
+    Notes:
+      'Olivia loves to sell. She has been selling DevAV products since 2012. \r\n\r\nOlivia was homecoming queen in high school. She is expecting her first child in 6 months. Good Luck Olivia.',
+    Address: '807 W Paseo Del Mar',
+    StateID: 5
   },
   {
     ID: 3,
-    CompanyName: 'Video Emporium',
-    Address: '1201 Elm Street',
-    City: 'Dallas',
-    State: 'Texas',
-    Zipcode: 75270,
-    Phone: '(214) 854-3000',
-    Fax: '(214) 854-3001',
-    Website: 'http =//www.nowebsitevideoemporium.com'
+    FirstName: 'Robert',
+    LastName: 'Reagan',
+    Prefix: 'Mr.',
+    Position: 'CMO',
+    BirthDate: '1974/09/07',
+    HireDate: '2002/11/08',
+    Notes:
+      'Robert was recently voted the CMO of the year by CMO Magazine. He is a proud member of the DevAV Management Team.\r\n\r\nRobert is a championship BBQ chef, so when you get the chance ask him for his secret recipe.',
+    Address: '4 Westmoreland Pl.',
+    StateID: 4
   },
   {
     ID: 4,
-    CompanyName: 'Screen Shop',
-    Address: '1000 Lowes Blvd',
-    City: 'Mooresville',
-    State: 'North Carolina',
-    Zipcode: 28117,
-    Phone: '(800) 445-6937',
-    Fax: '(800) 445-6938',
-    Website: 'http =//www.nowebsitescreenshop.com'
+    FirstName: 'Greta',
+    LastName: 'Sims',
+    Prefix: 'Ms.',
+    Position: 'HR Manager',
+    BirthDate: '1977/11/22',
+    HireDate: '1998/04/23',
+    Notes:
+      "Greta has been DevAV's HR Manager since 2003. She joined DevAV from Sonee Corp.\r\n\r\nGreta is currently training for the NYC marathon. Her best marathon time is 4 hours. Go Greta.",
+    Address: '1700 S Grandview Dr.',
+    StateID: 11
   },
   {
     ID: 5,
-    CompanyName: 'Braeburn',
-    Address: '1 Infinite Loop',
-    City: 'Cupertino',
-    State: 'California',
-    Zipcode: 95014,
-    Phone: '(408) 996-1010',
-    Fax: '(408) 996-1012',
-    Website: 'http =//www.nowebsitebraeburn.com'
+    FirstName: 'Brett',
+    LastName: 'Wade',
+    Prefix: 'Mr.',
+    Position: 'IT Manager',
+    BirthDate: '1968/12/01',
+    HireDate: '2009/03/06',
+    Notes:
+      'Brett came to DevAv from Microsoft and has led our IT department since 2012.\r\n\r\nWhen he is not working hard for DevAV, he coaches Little League (he was a high school pitcher).',
+    Address: '1120 Old Mill Rd.',
+    StateID: 13
   },
   {
     ID: 6,
-    CompanyName: 'PriceCo',
-    Address: '30 Hunter Lane',
-    City: 'Camp Hill',
-    State: 'Pennsylvania',
-    Zipcode: 17011,
-    Phone: '(717) 761-2633',
-    Fax: '(717) 761-2334',
-    Website: 'http =//www.nowebsitepriceco.com'
+    FirstName: 'Sandra',
+    LastName: 'Johnson',
+    Prefix: 'Mrs.',
+    Position: 'Controller',
+    BirthDate: '1974/11/15',
+    HireDate: '2005/05/11',
+    Notes:
+      "Sandra is a CPA and has been our controller since 2008. She loves to interact with staff so if you've not met her, be certain to say hi.\r\n\r\nSandra has 2 daughters both of whom are accomplished gymnasts.",
+    Address: '4600 N Virginia Rd.',
+    StateID: 44
   },
   {
     ID: 7,
-    CompanyName: 'Ultimate Gadget',
-    Address: '1557 Watson Blvd',
-    City: 'Warner Robbins',
-    State: 'Georgia',
-    Zipcode: 31093,
-    Phone: '(995) 623-6785',
-    Fax: '(995) 623-6786',
-    Website: 'http =//www.nowebsiteultimategadget.com'
+    FirstName: 'Kevin',
+    LastName: 'Carter',
+    Prefix: 'Mr.',
+    Position: 'Shipping Manager',
+    BirthDate: '1978/01/09',
+    HireDate: '2009/08/11',
+    Notes:
+      'Kevin is our hard-working shipping manager and has been helping that department work like clockwork for 18 months.\r\n\r\nWhen not in the office, he is usually on the basketball court playing pick-up games.',
+    Address: '424 N Main St.',
+    StateID: 5
   },
   {
     ID: 8,
-    CompanyName: 'EZ Stop',
-    Address: '618 Michillinda Ave.',
-    City: 'Arcadia',
-    State: 'California',
-    Zipcode: 91007,
-    Phone: '(626) 265-8632',
-    Fax: '(626) 265-8633',
-    Website: 'http =//www.nowebsiteezstop.com'
+    FirstName: 'Cynthia',
+    LastName: 'Stanwick',
+    Prefix: 'Ms.',
+    Position: 'HR Assistant',
+    BirthDate: '1985/06/05',
+    HireDate: '2008/03/24',
+    Notes:
+      'Cindy joined us in 2008 and has been in the HR department for 2 years. \r\n\r\nShe was recently awarded employee of the month. Way to go Cindy!',
+    Address: '2211 Bonita Dr.',
+    StateID: 4
   },
   {
     ID: 9,
-    CompanyName: 'Clicker',
-    Address: '1100 W. Artesia Blvd.',
-    City: 'Compton',
-    State: 'California',
-    Zipcode: 90220,
-    Phone: '(310) 884-9000',
-    Fax: '(310) 884-9001',
-    Website: 'http =//www.nowebsiteclicker.com'
+    FirstName: 'Kent',
+    LastName: 'Samuelson',
+    Prefix: 'Dr.',
+    Position: 'Ombudsman',
+    BirthDate: '1972/09/11',
+    HireDate: '2009/04/22',
+    Notes:
+      'As our ombudsman, Kent is on the front-lines solving customer problems and helping our partners address issues out in the field.    He is a classically trained musician and is a member of the Chamber Orchestra.',
+    Address: '12100 Mora Dr',
+    StateID: 26
   },
   {
     ID: 10,
-    CompanyName: 'Store of America',
-    Address: '2401 Utah Ave. South',
-    City: 'Seattle',
-    State: 'Washington',
-    Zipcode: 98134,
-    Phone: '(206) 447-1575',
-    Fax: '(206) 447-1576',
-    Website: 'http =//www.nowebsiteamerica.com'
+    FirstName: 'Taylor',
+    LastName: 'Riley',
+    Prefix: 'Mr.',
+    Position: 'Network Admin',
+    BirthDate: '1982/08/14',
+    HireDate: '2012/04/14',
+    Notes:
+      "If you are like the rest of us at DevAV, then you've probably reached out for help from Taylor. He does a great job as a member of our IT department.",
+    Address: '7776 Torreyson Dr',
+    StateID: 5
   },
   {
     ID: 11,
-    CompanyName: 'Zone Toys',
-    Address: '1945 S Cienega Boulevard',
-    City: 'Los Angeles',
-    State: 'California',
-    Zipcode: 90034,
-    Phone: '(310) 237-5642',
-    Fax: '(310) 237-5643',
-    Website: 'http =//www.nowebsitezonetoys.com'
+    FirstName: 'Sam',
+    LastName: 'Hill',
+    Prefix: 'Mr.',
+    Position: 'Sales Assistant',
+    BirthDate: '1984/02/17',
+    HireDate: '2012/02/01',
+    Notes:
+      'Sammy is proud to be a member of the DevAV team. He joined the team in 2012 and has been in the sales department from the beginning.\r\n\r\nHe has just picked up golf so you can find him on the links every weekend.',
+    Address: '645 Prospect Crescent',
+    StateID: 11
   },
   {
     ID: 12,
-    CompanyName: 'ACME',
-    Address: '2525 E El Segundo Blvd',
-    City: 'El Segundo',
-    State: 'California',
-    Zipcode: 90245,
-    Phone: '(310) 536-0611',
-    Fax: '(310) 536-0612',
-    Website: 'http =//www.nowebsiteacme.com'
+    FirstName: 'Kelly',
+    LastName: 'Rodriguez',
+    Prefix: 'Ms.',
+    Position: 'Support Assistant',
+    BirthDate: '1988/05/11',
+    HireDate: '2012/10/13',
+    Notes:
+      "Kelly loves people and that's why she joined DevAV's support department. One of the funniest people in the company, she does stand-up on the weekends at the Laugh Factory.",
+    Address: '1601 W Mountain St.',
+    StateID: 5
   },
   {
     ID: 13,
-    CompanyName: 'Super Mart of the West',
-    Address: '702 SW 8th Street',
-    City: 'Bentonville',
-    State: 'Arkansas',
-    Zipcode: 72716,
-    Phone: '(800) 555-2797',
-    Fax: '(800) 555-2171',
-    Website: 'http://www.nowebsitesupermart.com'
+    FirstName: 'Natalie',
+    LastName: 'Maguirre',
+    Prefix: 'Mrs.',
+    Position: 'Trainer',
+    BirthDate: '1977/10/07',
+    HireDate: '2008/06/19',
+    Notes:
+      'Natalie travels the US and teaches our partners how to explain the benefits of our products to customers.\r\n\r\nShe is a proud wife and mom and volunteers her time at the elementary school.',
+    Address: '6400 E Bixby Hill Rd',
+    StateID: 29
   },
   {
     ID: 14,
-    CompanyName: 'Electronics Depot',
-    Address: '2455 Paces Ferry Road NW',
-    City: 'Atlanta',
-    State: 'Georgia',
-    Zipcode: 30339,
-    Phone: '(800) 595-3232',
-    Fax: '(800) 595-3231',
-    Website: 'http =//www.nowebsitedepot.com'
+    FirstName: 'Walter',
+    LastName: 'Hobbs',
+    Prefix: 'Mr.',
+    Position: 'Programmer',
+    BirthDate: '1984/12/24',
+    HireDate: '2011/02/17',
+    Notes:
+      "Walter has been developing apps and websites for DevAV since 2011. His passion is software and if you ever walk by his desk, you'll know why.\r\n\r\nWally once worked 72 hours straight - writing code and fixing bugs.",
+    Address: '10385 Shadow Oak Dr',
+    StateID: 13
+  }
+];
+
+let states: State[] = [
+  {
+    ID: 1,
+    Name: 'Alabama'
+  },
+  {
+    ID: 2,
+    Name: 'Alaska'
+  },
+  {
+    ID: 3,
+    Name: 'Arizona'
+  },
+  {
+    ID: 4,
+    Name: 'Arkansas'
+  },
+  {
+    ID: 5,
+    Name: 'California'
+  },
+  {
+    ID: 6,
+    Name: 'Colorado'
+  },
+  {
+    ID: 7,
+    Name: 'Connecticut'
+  },
+  {
+    ID: 8,
+    Name: 'Delaware'
+  },
+  {
+    ID: 9,
+    Name: 'District of Columbia'
+  },
+  {
+    ID: 10,
+    Name: 'Florida'
+  },
+  {
+    ID: 11,
+    Name: 'Georgia'
+  },
+  {
+    ID: 12,
+    Name: 'Hawaii'
+  },
+  {
+    ID: 13,
+    Name: 'Idaho'
+  },
+  {
+    ID: 14,
+    Name: 'Illinois'
   },
   {
     ID: 15,
-    CompanyName: 'K&S Music',
-    Address: '1000 Nicllet Mall',
-    City: 'Minneapolis',
-    State: 'Minnesota',
-    Zipcode: 55403,
-    Phone: '(612) 304-6073',
-    Fax: '(612) 304-6074',
-    Website: 'http =//www.nowebsitemusic.com'
+    Name: 'Indiana'
   },
   {
     ID: 16,
-    CompanyName: "Tom's Club",
-    Address: '999 Lake Drive',
-    City: 'Issaquah',
-    State: 'Washington',
-    Zipcode: 98027,
-    Phone: '(800) 955-2292',
-    Fax: '(800) 955-2293',
-    Website: 'http =//www.nowebsitetomsclub.com'
+    Name: 'Iowa'
   },
   {
     ID: 17,
-    CompanyName: 'E-Mart',
-    Address: '3333 Beverly Rd',
-    City: 'Hoffman Estates',
-    State: 'Illinois',
-    Zipcode: 60179,
-    Phone: '(847) 286-2500',
-    Fax: '(847) 286-2501',
-    Website: 'http =//www.nowebsiteemart.com'
+    Name: 'Kansas'
   },
   {
     ID: 18,
-    CompanyName: 'Walters',
-    Address: '200 Wilmot Rd',
-    City: 'Deerfield',
-    State: 'Illinois',
-    Zipcode: 60015,
-    Phone: '(847) 940-2500',
-    Fax: '(847) 940-2501',
-    Website: 'http =//www.nowebsitewalters.com'
+    Name: 'Kentucky'
   },
   {
     ID: 19,
-    CompanyName: 'StereoShack',
-    Address: '400 Commerce S',
-    City: 'Fort Worth',
-    State: 'Texas',
-    Zipcode: 76102,
-    Phone: '(817) 820-0741',
-    Fax: '(817) 820-0742',
-    Website: 'http =//www.nowebsiteshack.com'
+    Name: 'Louisiana'
   },
   {
     ID: 20,
-    CompanyName: 'Circuit Town',
-    Address: '2200 Kensington Court',
-    City: 'Oak Brook',
-    State: 'Illinois',
-    Zipcode: 60523,
-    Phone: '(800) 955-2929',
-    Fax: '(800) 955-9392',
-    Website: 'http =//www.nowebsitecircuittown.com'
+    Name: 'Maine'
+  },
+  {
+    ID: 21,
+    Name: 'Maryland'
+  },
+  {
+    ID: 22,
+    Name: 'Massachusetts'
+  },
+  {
+    ID: 23,
+    Name: 'Michigan'
+  },
+  {
+    ID: 24,
+    Name: 'Minnesota'
+  },
+  {
+    ID: 25,
+    Name: 'Mississippi'
+  },
+  {
+    ID: 26,
+    Name: 'Missouri'
+  },
+  {
+    ID: 27,
+    Name: 'Montana'
+  },
+  {
+    ID: 28,
+    Name: 'Nebraska'
+  },
+  {
+    ID: 29,
+    Name: 'Nevada'
+  },
+  {
+    ID: 30,
+    Name: 'New Hampshire'
+  },
+  {
+    ID: 31,
+    Name: 'New Jersey'
+  },
+  {
+    ID: 32,
+    Name: 'New Mexico'
+  },
+  {
+    ID: 33,
+    Name: 'New York'
+  },
+  {
+    ID: 34,
+    Name: 'North Carolina'
+  },
+  {
+    ID: 35,
+    Name: 'Ohio'
+  },
+  {
+    ID: 36,
+    Name: 'Oklahoma'
+  },
+  {
+    ID: 37,
+    Name: 'Oregon'
+  },
+  {
+    ID: 38,
+    Name: 'Pennsylvania'
+  },
+  {
+    ID: 39,
+    Name: 'Rhode Island'
+  },
+  {
+    ID: 40,
+    Name: 'South Carolina'
+  },
+  {
+    ID: 41,
+    Name: 'South Dakota'
+  },
+  {
+    ID: 42,
+    Name: 'Tennessee'
+  },
+  {
+    ID: 43,
+    Name: 'Texas'
+  },
+  {
+    ID: 44,
+    Name: 'Utah'
+  },
+  {
+    ID: 45,
+    Name: 'Vermont'
+  },
+  {
+    ID: 46,
+    Name: 'Virginia'
+  },
+  {
+    ID: 47,
+    Name: 'Washington'
+  },
+  {
+    ID: 48,
+    Name: 'West Virginia'
+  },
+  {
+    ID: 49,
+    Name: 'Wisconsin'
+  },
+  {
+    ID: 50,
+    Name: 'Wyoming'
+  },
+  {
+    ID: 51,
+    Name: 'North Dakota'
   }
 ];
