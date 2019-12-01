@@ -11,9 +11,10 @@ export class AppComponent {
   states: State[];
   events: Array<string> = [];
 
+  pattern: any = /^\(\d{3}\) \d{3}-\d{4}$/i;
+
   constructor(service: DataService) {
     this.dataSource = service.getEmployees();
-    this.states = service.getStates();
   }
 
   logEvent(eventName) {
