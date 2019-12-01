@@ -15,6 +15,7 @@ export class AppComponent {
 
   constructor(service: DataService) {
     this.dataSource = service.getEmployees();
+    this.states = service.getStates();
   }
 
   logEvent(eventName) {
